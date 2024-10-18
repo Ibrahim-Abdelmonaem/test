@@ -1,10 +1,5 @@
 #!/usr/bin/env groovy
 
-library identifier: 'jenkins-shared-library@master', retriever: modernSCM(
-    [$class: 'GitSCMSource',
-     remote: 'https://github.com/Ibrahim-Abdelmonaem/test.git'
-    ]
-)
 
 pipeline {
     agent any
