@@ -5,7 +5,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS_ID = credentials('dockerhub')
-        DOCKER_IMAGE_NAME = 'ibrahimabdelmonaem/app'
+        DOCKER_IMAGE_NAME = 'ibrahimabdelmonaem/app:latest'
     }
 
     stages {
@@ -20,7 +20,7 @@ pipeline {
                 script {
                     dir('app') {
                     sh 'pwd'
-                    sh "sudo docker build -t $DOCKER_IMAGE_NAME:latest ."
+                    sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
                     }
                 }
             }
@@ -31,8 +31,9 @@ pipeline {
                 script {
                     sh "echo $DOCKERHUB_CREDENTIALS_USR"
                     sh "echo $DOCKERHUB_CREDENTIALS_PSW"
+                    sh "echo login not ok"
                     sh 'sudo docker login -u $DOCKERHUB_CREDENTIALS_ID_USR -p $DOCKERHUB_CREDENTIALS_ID_PSW'
-                    sh "echo $DOCKER_IMAGE_NAME"
+                    sh "echo login ok"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
                     sh "echo $DOCKER_IMAGE_NAME"
                 }
