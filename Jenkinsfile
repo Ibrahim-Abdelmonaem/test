@@ -29,7 +29,7 @@ pipeline {
     stage('Push to Docker hub') {
             steps {
                 script {
-                    sh 'sudo login -p $DOCKERHUB_CREDENTIALS_PSW $DOCKERHUB_CREDENTIALS_USR'
+                    sh 'sudo docker login -p $DOCKERHUB_CREDENTIALS_PSW $DOCKERHUB_CREDENTIALS_USR'
                     sh 'sudo docker push $DOCKER_IMAGE_NAME:latest'
                 }
             }
