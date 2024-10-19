@@ -21,6 +21,8 @@ pipeline {
                     dir('app') {
                     sh 'pwd'
                     sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
+                    sh 'pwd'
+                    sh 'echo build ok'
                     }
                 }
             }
