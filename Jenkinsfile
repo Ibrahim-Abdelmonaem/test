@@ -62,7 +62,7 @@ pipeline {
                         sh "pwd"
                         env.SERVER_IP = EC2_PUBLIC_IP
                     }
-                    sh "echo \n$EC2_PUBLIC_IP >> hosts"
+                    sh "echo $EC2_PUBLIC_IP >> hosts"
                 }
             }
         }
