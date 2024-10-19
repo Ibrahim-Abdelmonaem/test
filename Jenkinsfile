@@ -73,7 +73,7 @@ pipeline {
             steps {
                 sh 'echo checkagain'
                 sh 'echo $SERVER_IP'
-                export SERVER_IP="${SERVER_IP}"
+                sh 'export SERVER_IP=$SERVER_IP'
             }
         }
 
