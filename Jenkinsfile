@@ -3,6 +3,13 @@
 
 pipeline {
     agent any
+    tools {
+        maven 'Maven'
+    }
+    environment {
+        IMAGE_NAME = 'nanajanashia/demo-app:java-maven-2.0'
+    }
+
     stages {
         
         stage('provision server') {
@@ -16,13 +23,21 @@ pipeline {
                     dir('terraform') {
                         sh "terraform init -migrate-state"
                         sh "terraform apply --auto-approve"
-                        //EC2_PUBLIC_IP = sh(
-                            //script: "terraform output ec2_public_ip",
-                            //returnStdout: true
-                        //).trim()
                     }
                 }
             }
         }
+
+    stage('build app') {
+            steps {
+               script {
+                  echo 'building application jar...'
+                  buildJar()
+               }
+            }
+        }
+
+
+        
             }
         }
