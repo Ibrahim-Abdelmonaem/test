@@ -1,0 +1,42 @@
+---
+- name: Install node and npn
+  hosts: server
+  become: yes
+  tasks:
+    - name: Update apt repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+    - name: Install nodejs
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Install npm
+      apt:
+        name: npm
+        state: present 
+
+- name: Deploy nodejs app
+  hosts: server
+  become: yes
+  tasks:
+    - name: Copy nodejs folder to a server
+      copy:
+        src: ~/ansible-projects/simple-nodejs-app/nodejs-app-1.0.0.tgz
+        dest: /home/ubuntu/nodejs-app.tgz
+    - name: Unpack the nodejs file
+      unarchive:
+        src: /home/ubuntu/nodejs-app.tgz
+        dest: /home/ubuntu/
+        remote_src: yes
+    - name: Install app dependencies
+      npm:
+        path: /home/ubuntu/package
+    - name: Start the application
+      command:
+        chdir: /home/ubuntu/package/app
+        cmd: node server.js
+      async: 45
+      poll: 0
+
+        

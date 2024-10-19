@@ -1,0 +1,7 @@
+[server]
+
+50.16.37.170
+
+[server:vars]
+ansible_ssh_private_key=/home/ibrahim/.ssh/id_rsa 
+ansible_user=ubuntu
