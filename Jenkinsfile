@@ -69,7 +69,11 @@ pipeline {
         }
 
 
-        
+        stage('Print Environment Variable') {
+            steps {
+                sh 'echo checkagain'
+                sh 'echo $SERVER_IP'
+            }
 
 
 
