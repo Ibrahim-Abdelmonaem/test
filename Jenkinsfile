@@ -20,7 +20,7 @@ pipeline {
                 script {
                     dir('app') {
                     sh 'pwd'
-                    sh "su docker build -t $DOCKER_IMAGE_NAME:latest ."
+                    sh "sudo docker build -t $DOCKER_IMAGE_NAME:latest ."
 
                     }
                 }
