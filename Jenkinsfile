@@ -21,9 +21,7 @@ pipeline {
                 script {
                     dir('app') {
                         sh 'pwd'
-                        //app = docker.build(DOCKER_IMAGE_NAME)
                         sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
-                        sh 'pwd'
                         sh 'echo build ok' 
                     }
                 }
@@ -33,8 +31,6 @@ pipeline {
     stage('Push to Docker hub') {
             steps {
                 script {
-                    sh "echo hello1"
-                    sh "echo hello2"
                     sh "echo login not ok"
                     sh "sudo docker login -u $DOCKERHUB_CREDENTIALS_USER -p $DOCKERHUB_CREDENTIALS_PSW"
                     sh "sudo docker images"
@@ -58,6 +54,8 @@ pipeline {
                     dir('terraform') {
                         sh "terraform init -migrate-state"
                         sh "terraform apply --auto-approve"
+                        ec2_public_ip = sh "sudo terraform output server-ip"
+
                         //EC2_PUBLIC_IP = sh(
                             //script: "terraform output ec2_public_ip",
                             //returnStdout: true
@@ -66,5 +64,22 @@ pipeline {
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
         }
