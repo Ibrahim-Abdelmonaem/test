@@ -67,12 +67,7 @@ pipeline {
         }
 
 
-        stage('configurations') {
-
-
-
-
-        }
+        
 
 
 
