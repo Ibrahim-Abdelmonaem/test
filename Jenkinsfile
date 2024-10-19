@@ -5,7 +5,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS_ID = credentials('dockerhub')
-        DOCKER_IMAGE_NAME = 'ibrahimabdelmonaem/app:latest'
+        DOCKER_IMAGE_NAME = 'ibrahimabdelmonaem/app'
     }
 
     stages {
@@ -20,7 +20,8 @@ pipeline {
                 script {
                     dir('app') {
                     sh 'pwd'
-                    sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                    //sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
                     sh 'pwd'
                     sh 'echo build ok'
                     }
@@ -34,7 +35,10 @@ pipeline {
                     sh "echo hello1"
                     sh "echo hello2"
                     sh "echo login not ok"
-                    sh 'sudo docker login -u ibrahimabdelmonaem -p $DOCKERHUB_CREDENTIALS_ID'
+                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
+                        app.push('latest')
+                    }
+                    //sh 'sudo docker login -u ibrahimabdelmonaem -p $DOCKERHUB_CREDENTIALS_ID'
                     sh "sudo docker images"
                     sh "echo login ok"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
