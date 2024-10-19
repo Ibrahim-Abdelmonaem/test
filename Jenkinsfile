@@ -68,11 +68,9 @@ pipeline {
         }
 
 
-        stage('Print Environment Variable') {
+        stage('Configurations with ansible') {
             steps {
-                sh 'echo checkagain'
-                sh 'echo $SERVER_IP'
-                sh 'export SERVER_IP=$SERVER_IP'
+                sh 'ansible-playbook -i hosts deploy.yaml'
             }
         }
 
