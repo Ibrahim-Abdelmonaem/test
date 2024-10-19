@@ -4,7 +4,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        mvn 'Maven'
     }
     environment {
         IMAGE_NAME = 'nanajanashia/demo-app:java-maven-2.0'
