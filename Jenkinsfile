@@ -47,7 +47,6 @@ pipeline {
                 AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
                 TF_VAR_env_prefix = 'test'
-
             }
             steps {
                 script {
@@ -55,19 +54,25 @@ pipeline {
                         sh "terraform init -migrate-state"
                         sh "terraform apply --auto-approve"
                         ec2_public_ip = sh "sudo terraform output server-ip"
-                        sh "echo $ec2_public_ip"
                         EC2_PUBLIC_IP = sh(
                             script: "terraform output server-ip",
                             returnStdout: true
                         ).trim()
                         sh "echo $EC2_PUBLIC_IP"
+                        sh "pwd"
+                        sh "echo $EC2_PUBLIC_IP > ip.txt"
                     }
                 }
             }
         }
 
 
+        stage('configurations') {
 
+
+
+
+        }
 
 
 
