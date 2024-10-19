@@ -74,7 +74,7 @@ pipeline {
                 sh 'echo checkagain'
                 sh 'echo $SERVER_IP'
             }
-
+        }
 
 
 
