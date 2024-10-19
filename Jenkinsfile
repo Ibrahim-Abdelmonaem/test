@@ -32,7 +32,9 @@ pipeline {
                     sh "echo $DOCKERHUB_CREDENTIALS_USR"
                     sh "echo $DOCKERHUB_CREDENTIALS_PSW"
                     sh 'sudo docker login -u $DOCKERHUB_CREDENTIALS_ID_USR -p $DOCKERHUB_CREDENTIALS_ID_PSW'
+                    sh "echo $DOCKER_IMAGE_NAME"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
+                    sh "echo $DOCKER_IMAGE_NAME"
                 }
             }
         }    
