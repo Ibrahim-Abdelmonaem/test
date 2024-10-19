@@ -31,10 +31,11 @@ pipeline {
     stage('Push to Docker hub') {
             steps {
                 script {
-                    sh "echo $DOCKERHUB_CREDENTIALS_USR"
-                    sh "echo $DOCKERHUB_CREDENTIALS_PSW"
+                    sh "echo hello1"
+                    sh "echo hello2"
                     sh "echo login not ok"
                     sh 'sudo docker login -u $DOCKERHUB_CREDENTIALS_ID_USR -p $DOCKERHUB_CREDENTIALS_ID_PSW'
+                    sh "sudo docker images"
                     sh "echo login ok"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
                     sh "echo $DOCKER_IMAGE_NAME"
