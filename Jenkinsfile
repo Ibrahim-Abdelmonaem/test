@@ -20,7 +20,7 @@ pipeline {
                 script {
                     dir('app') {
                     sh 'pwd'
-                    sh "docker build -t $DOCKER_IMAGE_NAME:latest ."
+                    sh "su docker build -t $DOCKER_IMAGE_NAME:latest ."
 
                     }
                 }
@@ -34,8 +34,6 @@ pipeline {
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
                 TF_VAR_env_prefix = 'test'
 
-                DOCKER_CREDENTIALS_ID = 'docker_credentials'
-                DOCKER_IMAGE_NAME = 'shazly3/webapp'
             }
             steps {
                 script {
