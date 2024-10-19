@@ -60,10 +60,9 @@ pipeline {
                         ).trim()
                         sh "echo $EC2_PUBLIC_IP"
                         sh "pwd"
-                        sh "echo $EC2_PUBLIC_IP >> ip.txt"
                         env.SERVER_IP = EC2_PUBLIC_IP
                     }
-                    
+                    sh "echo $EC2_PUBLIC_IP >> ip.txt"
                 }
             }
         }
