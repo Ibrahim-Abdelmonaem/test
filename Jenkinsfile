@@ -18,13 +18,13 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 script {
-                    dir('app') {
+                    //dir('app') {
                     sh 'pwd'
                     app = docker.build(DOCKER_IMAGE_NAME)
                     //sh "sudo docker build -t $DOCKER_IMAGE_NAME ."
                     sh 'pwd'
                     sh 'echo build ok'
-                    }
+                    
                 }
             }
         }
