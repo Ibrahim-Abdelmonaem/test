@@ -70,7 +70,11 @@ pipeline {
 
         stage('Configurations with ansible') {
             steps {
+                script {
+                sh 'pwd'
+                sh 'ls'
                 sh 'ansible-playbook -i hosts deploy.yaml'
+                }
             }
         }
 
