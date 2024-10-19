@@ -4,7 +4,8 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS_ID = credentials('dockerhub')
+        DOCKERHUB_CREDENTIALS_USER = credentials('dockerhub_usr')
+        DOCKERHUB_CREDENTIALS_PSW = credentials('dockerhub_psw')
         DOCKER_IMAGE_NAME = 'ibrahimabdelmonaem/app'
     }
 
@@ -35,10 +36,7 @@ pipeline {
                     sh "echo hello1"
                     sh "echo hello2"
                     sh "echo login not ok"
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                        app.push('latest')
-                    }
-                    //sh 'sudo docker login -u ibrahimabdelmonaem -p $DOCKERHUB_CREDENTIALS_ID'
+                    sh "sudo docker login -u $DOCKERHUB_CREDENTIALS_USER -p $DOCKERHUB_CREDENTIALS_PSW"
                     sh "sudo docker images"
                     sh "echo login ok"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
