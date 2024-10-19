@@ -34,7 +34,7 @@ pipeline {
                     sh "echo hello1"
                     sh "echo hello2"
                     sh "echo login not ok"
-                    sh 'sudo docker login -u $DOCKERHUB_CREDENTIALS_ID_USR -p $DOCKERHUB_CREDENTIALS_ID_PSW'
+                    sh 'sudo docker login -u ibrahimabdelmonaem -p $DOCKERHUB_CREDENTIALS_ID'
                     sh "sudo docker images"
                     sh "echo login ok"
                     sh "sudo docker push $DOCKER_IMAGE_NAME"
