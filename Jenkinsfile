@@ -18,8 +18,11 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 script {
+                    dir('app') {
                     sh 'pwd'
                     sh "docker build -t $DOCKER_IMAGE_NAME:latest ."
+
+                    }
                 }
             }
         }
