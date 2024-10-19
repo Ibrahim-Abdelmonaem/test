@@ -21,11 +21,19 @@ pipeline {
                     dir('app') {
                     sh 'pwd'
                     sh "sudo docker build -t $DOCKER_IMAGE_NAME:latest ."
-
                     }
                 }
             }
         }
+
+    stage('Push to Docker hub') {
+            steps {
+                script {
+                    sh "login -u ibrahimabdelmonaem -p $DOCKERHUB_CREDENTIALS_ID"
+                    sh "docker push $DOCKER_IMAGE_NAME:latest"
+                }
+            }
+        }    
 
         
         stage('provision server') {
