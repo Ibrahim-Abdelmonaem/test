@@ -52,7 +52,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init -migrate-state"
-                        sh "terraform apply --auto-approve"
+                        sh "terraform destroy --auto-approve"
                         ec2_public_ip = sh "sudo terraform output server-ip"
                         EC2_PUBLIC_IP = sh(
                             script: "terraform output server-ip",
