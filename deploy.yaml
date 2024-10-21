@@ -3,16 +3,16 @@
   hosts: server
   become: yes
   tasks:
-    - name: Update apt repo and cache
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+    - name: Update yum repo and cache
+      yum: update_cache=yes force_yum_get=yes cache_valid_time=3600
 
     - name: Install nodejs
-      apt:
+      yum:
         name: nodejs
         state: present
 
     - name: Install npm
-      apt:
+      yum:
         name: npm
         state: present 
 
