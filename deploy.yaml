@@ -29,9 +29,8 @@
     - name: Copy docker-compose file to the server
       copy:
         src: ./docker-compose.yaml
-        dest: /home/ec2-user/docker-compose.yaml
+        dest: /home/ec2-user/
 
     - name: Run docker compose file
       command: docker docker-compose up -d
-      args:
-        chdir: /home/ec2-user/docker-compose.yaml  
+      
