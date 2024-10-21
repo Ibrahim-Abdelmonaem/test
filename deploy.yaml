@@ -8,7 +8,7 @@
 
     - name: Install docker
       yum:
-        name: docker.io
+        name: docker
         state: present
 
     - name: start docker
