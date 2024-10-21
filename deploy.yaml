@@ -38,7 +38,7 @@
         var: result.stdout
       
     - name: Run docker compose file
-      command: docker-compose -f docker-compose.yaml up -d
+      command: docker-compose -f docker-compose.yaml up
       args:
         chdir: /home/ec2-user/
       
