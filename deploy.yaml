@@ -30,8 +30,11 @@
       copy:
         src: ./docker-compose.yaml
         dest: /home/ec2-user/
+    - name: Change to a specific directory
+      become: true
+      chdir: /home/ec2-user/
 
     - name: Run docker compose file
-      shell: pwd
+      shell: docker-compose up -d
      
       
