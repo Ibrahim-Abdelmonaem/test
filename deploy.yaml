@@ -6,14 +6,19 @@
     - name: Update yum repo and cache
       yum: update_cache=yes
 
-    - name: Install nodejs
+    - name: Install docker
       yum:
-        name: nodejs
+        name: docker.io
         state: present
 
-    - name: Install npm
+    - name: start docker
+      service:
+        name: docker
+        state: started
+
+    - name: Install docker-compose
       yum:
-        name: npm
+        name: docker-compose
         state: present 
 
 - name: Deploy nodejs app
