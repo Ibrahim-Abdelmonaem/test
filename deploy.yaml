@@ -28,7 +28,7 @@
   tasks:
     - name: Copy docker-compose file to the server
       copy:
-        src: .
+        src: ./docker-compose.yaml
         dest: /home/ec2-user/docker-compose.yaml
 
     - name: Run docker compose file
