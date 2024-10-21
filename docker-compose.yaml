@@ -1,7 +1,6 @@
-version: '3'
 services:
   my-app:
-    image: shazly3/webapp:latest
+    image: ibrahimabdelmonaem/app:latest
     ports:
       - 3000:3000
     depends_on:
