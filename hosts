@@ -1,5 +1,5 @@
 [server]
-107.23.168.78
+98.81.139.138
 
 [server:vars]
 ansible_ssh_private_key=/key 
