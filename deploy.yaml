@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Update yum repo and cache
-      yum: update_cache=yes force_yum_get=yes cache_valid_time=3600
+      yum: update_cache=yes
 
     - name: Install nodejs
       yum:
