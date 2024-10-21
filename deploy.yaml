@@ -32,7 +32,6 @@
         dest: /home/ec2-user/
 
     - name: Run docker compose file
-      command: docker-compose up -d
-      args:
-        chdir: /home/ec2-user
+      shell: docker-compose up -d
+     
       
