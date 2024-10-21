@@ -22,26 +22,16 @@
     - name: Make X
       command: sudo chmod +x /usr/local/bin/docker-compose
 
-- name: Deploy nodejs app
+- name: Copy and run docker-compose file
   hosts: server
   become: yes
   tasks:
-    - name: Copy nodejs folder to a server
+    - name: Copy docker-compose file to the server
       copy:
-        src: ~/ansible-projects/simple-nodejs-app/nodejs-app-1.0.0.tgz
-        dest: /home/ubuntu/nodejs-app.tgz
-    - name: Unpack the nodejs file
-      unarchive:
-        src: /home/ubuntu/nodejs-app.tgz
-        dest: /home/ubuntu/
-        remote_src: yes
-    - name: Install app dependencies
-      npm:
-        path: /home/ubuntu/package
-    - name: Start the application
-      command:
-        chdir: /home/ubuntu/package/app
-        cmd: node server.js
-      async: 45
-      poll: 0
-        
+        src: .
+        dest: /home/ec2-user/docker-compose.yaml
+
+    - name: Run docker compose file
+      command: docker docker-compose up -d
+      args:
+        chdir: /home/ec2-user/docker-compose.yaml  
