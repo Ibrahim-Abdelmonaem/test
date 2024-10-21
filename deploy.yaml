@@ -34,5 +34,5 @@
     - name: Run docker compose file
       command: docker-compose up -d
       args:
-        chdir: /home/ec2-user/
+        chdir: /home/ec2-user
       
