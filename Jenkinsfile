@@ -59,7 +59,8 @@ pipeline {
                             returnStdout: true
                         ).trim()
                         env.SERVER_IP = EC2_PUBLIC_IP
-                        sh 'echo fuck ip address $env.SERVER_IP'
+                        echo "fuck ip address ${env.SERVER_IP}"
+                        sh 'printenv'
                         sh "echo $EC2_PUBLIC_IP"
                         sh "pwd"
                         env.SERVER_IP = EC2_PUBLIC_IP
