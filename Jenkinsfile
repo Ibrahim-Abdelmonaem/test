@@ -62,7 +62,7 @@ pipeline {
                         echo "fuck ip address ${env.SERVER_IP}"
                         sh 'touch hosts2'
                         sh 'echo "[server]" > hosts2'
-                        sh 'echo "${env.SERVER_IP}" >> hosts2'
+                        //sh 'echo "${env.SERVER_IP}"" >> hosts2'
 
                         sh "echo [server]" > hosts
                         sh "echo $EC2_PUBLIC_IP" >> hosts
