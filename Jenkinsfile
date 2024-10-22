@@ -58,6 +58,8 @@ pipeline {
                             script: "terraform output server-ip",
                             returnStdout: true
                         ).trim()
+                        env.SERVER_IP = EC2_PUBLIC_IP
+                        sh 'echo fuck ip address $env.SERVER_IP'
                         sh "echo $EC2_PUBLIC_IP"
                         sh "pwd"
                         env.SERVER_IP = EC2_PUBLIC_IP
