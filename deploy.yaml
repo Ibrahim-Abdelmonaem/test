@@ -36,6 +36,9 @@
       register: result
     - debug:
         var: result.stdout
+
+    - name: start docker service
+      shell: sudo service docker start
       
     - name: Run docker compose file
       shell: docker-compose -f docker-compose.yaml up
