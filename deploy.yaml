@@ -41,5 +41,6 @@
       shell: sudo service docker start
       
     - name: Run docker compose file
-      shell: docker-compose -f docker-compose.yaml up
+      command: /usr/local/bin/docker-compose -f docker-compose.yaml up
+ #     shell: sudo docker-compose -f docker-compose.yaml up
       
