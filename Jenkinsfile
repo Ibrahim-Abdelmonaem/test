@@ -71,7 +71,7 @@ pipeline {
                     dir ('/var/jenkins_home/workspace/complete_pipeline') {
                         sh "pwd"
                         sh 'echo "[server]" > hosts2'
-                        sh 'echo ${env.SERVER_IP} >> hosts'
+                        echo "${env.SERVER_IP} >> hosts"
                     }
                     //sh "echo $EC2_PUBLIC_IP >> hosts"
                 }
