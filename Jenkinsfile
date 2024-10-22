@@ -63,14 +63,14 @@ pipeline {
                         sh 'touch hosts2'
                         sh 'echo "[server]" > hosts2'
                         echo "fuck ip address ${env.SERVER_IP} >> hosts2"
-                        sh 'echo "${env.SERVER_IP}"" >> hosts2'
+                        //sh 'echo "${env.SERVER_IP}"" >> hosts2'
 
-                        sh "echo [server]" > hosts
-                        echo "fuck before before"
-                        echo "fuck before ${env.SERVER_IP}"
-                        sh "echo $EC2_PUBLIC_IP" >> hosts
-                        echo "fuck after $EC2_PUBLIC_IP"
-                        sh "pwd"
+                        //sh "echo [server]" > hosts
+                        //echo "fuck before before"
+                        //echo "fuck before ${env.SERVER_IP}"
+                        //sh "echo $EC2_PUBLIC_IP" >> hosts
+                        //echo "fuck after $EC2_PUBLIC_IP"
+                        //sh "pwd"
                     }
                 }
             }
