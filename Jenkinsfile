@@ -63,8 +63,8 @@ pipeline {
                         sh 'touch hosts2'
                         sh 'echo "[server]" > hosts2'
                         def string = "${env.SERVER_IP}"
-                        echo string >> hosts
-                        echo string >> hosts2
+                        echo $string >> hosts
+                        echo $string >> hosts2
                         sh 'echo ${string} >> hosts2'
                         //echo "fuck ip address ${env.SERVER_IP} > hosts2"
                         //sh 'echo "${env.SERVER_IP}"" >> hosts2'
