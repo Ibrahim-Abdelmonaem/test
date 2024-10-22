@@ -65,9 +65,9 @@ pipeline {
                         //sh 'echo "${env.SERVER_IP}"" >> hosts2'
 
                         sh "echo [server]" > hosts
-                        sh "echo fuck before $EC2_PUBLIC_IP"
+                        echo "fuck before $EC2_PUBLIC_IP"
                         sh "echo $EC2_PUBLIC_IP" >> hosts
-                        sh "echo fuck after $EC2_PUBLIC_IP"
+                        echo "fuck after $EC2_PUBLIC_IP"
                         sh "pwd"
                     }
                 }
