@@ -59,10 +59,10 @@ pipeline {
                             returnStdout: true
                         ).trim()
                         env.SERVER_IP = EC2_PUBLIC_IP
-                        //echo "fuck ip address ${env.SERVER_IP}"
+                        echo "fuck ip address ${env.SERVER_IP}"
                         sh 'touch hosts2'
                         sh 'echo "[server]" > hosts2'
-                        //sh 'echo "${env.SERVER_IP}"" >> hosts2'
+                        sh 'echo "${env.SERVER_IP}"" >> hosts2'
 
                         sh "echo [server]" > hosts
                         echo "fuck before before"
