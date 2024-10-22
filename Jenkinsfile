@@ -71,6 +71,7 @@ pipeline {
                     dir ('/var/jenkins_home/workspace/complete_pipeline') {
                         sh '''
                         pwd
+                        echo "fuck ip address ${env.SERVER_IP}"
                         echo "$EC2_PUBLIC_IP"
                         echo "[server]" > hosts
                         echo "$EC2_PUBLIC_IP" >> hosts
