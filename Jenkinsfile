@@ -60,7 +60,7 @@ pipeline {
                         ).trim()
                         env.SERVER_IP = EC2_PUBLIC_IP
                         echo "fuck ip address ${env.SERVER_IP}"
-                        echo "[server]" > hosts
+                        sh 'echo "[server]" > hosts'
 
                         //sh "echo [server]" > hosts
                         //sh "echo $EC2_PUBLIC_IP" >> hosts
