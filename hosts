@@ -1,6 +1,5 @@
 [server]
-54.146.167.176
-
+{{ SERVER_IP }}
 [server:vars]
 ansible_ssh_private_key=/key 
 ansible_user=ec2-user
