@@ -61,8 +61,10 @@ pipeline {
                         env.SERVER_IP = EC2_PUBLIC_IP
                         echo "fuck ip address ${env.SERVER_IP}"
                         sh 'touch hosts2'
+                        sh 'touch hosts'
                         sh 'echo "[server]" > hosts2'
                         def string = "${env.SERVER_IP}"
+                        echo (string)
                         echo (string) >> hosts
                         echo (string) >> hosts2
                         sh 'echo ${string} >> hosts2'
