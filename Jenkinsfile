@@ -64,6 +64,8 @@ pipeline {
                         sh 'touch hosts'
                         sh 'echo "[server]" > hosts2'
                         sh "sudo terraform output server-ip >> hosts2"
+                        sh 'cp hosts2 /var/jenkins_home/workspace/complete_pipeline/test'
+
                         //sh 'echo ${string} >> hosts2'
                         //echo "fuck ip address ${env.SERVER_IP} > hosts2"
                         //sh 'echo "${env.SERVER_IP}"" >> hosts2'
